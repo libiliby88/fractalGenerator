@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121218">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" href="./icons/icon-180.png">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Chaos Game</title>
+</head>
+<body>
+  <main id="app">
+    <h1>Chaos Game</h1>
+    <section class="controls">
+      <label>Vertices <input id="vertex-count" type="range" min="2" max="12" value="3"></label>
+      <output id="vertex-count-value">3</output>
+      <label>Move fraction <input id="fraction" type="range" min="0" max="2" step="0.05" value="0.75"></label>
+      <output id="fraction-value">0.75</output>
+      <button id="run-button" type="button">Start</button>
+      <label class="toggle"><input id="traversing" type="checkbox"> Traversing</label>
+      <button id="reset-button" type="button">Reset points</button>
+    </section>
+    <p class="help">
+      Drag the green start point and orange numbered vertices.
+      Fraction 0.75 moves three quarters toward the chosen vertex.
+      Traversing OFF generates continuously while running; Traversing ON adds one point per key press or tap.
+    </p>
+    <section id="canvas-container" class="canvas-container">
+      <canvas id="chaos-canvas" aria-label="Chaos game canvas"></canvas>
+    </section>
+    <button id="next-button" class="next-button" type="button" hidden>Next point</button>
+    <p id="status" class="status">State: stopped | Mode: continuous | Points: 0</p>
+  </main>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

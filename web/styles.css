@@ -1,0 +1,162 @@
+:root {
+  --background: rgb(18, 18, 24);
+  --text: #ecf0f1;
+  --muted: #b4b4c4;
+  --button: #303044;
+  --button-hover: #46465a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-width: 280px;
+  min-height: 100%;
+  background: var(--background);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  min-height: 40px;
+  border: 1px solid #666680;
+  border-radius: 4px;
+  background: var(--button);
+  color: var(--text);
+  cursor: pointer;
+  padding: 7px 14px;
+  touch-action: manipulation;
+}
+
+button:hover {
+  background: var(--button-hover);
+}
+
+#app {
+  width: min(100%, 980px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 16px 12px 24px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 12px;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+input[type="range"] {
+  width: 130px;
+  accent-color: #78d2ff;
+}
+
+output {
+  min-width: 3rem;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.toggle {
+  min-height: 40px;
+}
+
+.toggle input {
+  accent-color: #78d2ff;
+}
+
+.help {
+  max-width: 760px;
+  margin: 10px auto;
+  color: #9999aa;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.canvas-container {
+  width: min(100%, 640px);
+  margin: 0 auto;
+  aspect-ratio: 1;
+}
+
+#chaos-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #303044;
+  background: var(--background);
+  cursor: default;
+  touch-action: none;
+}
+
+#chaos-canvas.hover-target,
+#chaos-canvas.dragging {
+  cursor: pointer;
+}
+
+.next-button {
+  display: block;
+  margin: 10px auto;
+}
+
+.next-button[hidden] {
+  display: none;
+}
+
+.status {
+  margin: 8px 0 0;
+  color: #9999aa;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  #app {
+    padding-inline: 8px;
+  }
+
+  .controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    text-align: left;
+  }
+
+  .controls label {
+    min-width: 0;
+  }
+
+  input[type="range"] {
+    width: min(130px, 100%);
+  }
+
+  .controls button,
+  .controls .toggle {
+    grid-column: span 2;
+    justify-content: center;
+  }
+
+  .canvas-container {
+    width: min(100%, 360px);
+  }
+}
